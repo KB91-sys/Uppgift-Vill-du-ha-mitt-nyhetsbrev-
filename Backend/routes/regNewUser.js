@@ -1,10 +1,12 @@
 var express = require('express');
 var fs = require('fs');
+var cors = require('cors'); 
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: true});
 
-
+use.router(cors());
 var router = express.Router();
+
 
 // GET 
 
