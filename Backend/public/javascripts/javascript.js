@@ -10,8 +10,8 @@ fetch('http://localhost:3000/regUsers')
     for(i = 0; i < data.length; i++){
 
 
-        var names = "Name: " + data[i].firstName + " " + data[i].lastName + 
-        " Username: " + data[i].userName + 
+        var names = "Name: " + data[i].firstname + " " + data[i].lastname + 
+        " Username: " + data[i].username + 
         " E-mail: " + data[i].eMail;
 
 
