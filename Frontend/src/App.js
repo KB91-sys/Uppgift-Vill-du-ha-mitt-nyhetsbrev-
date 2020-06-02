@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm'
 import Register from './components/Regiser';
+import StartPage from './components/StartPage'
+import { BrowserRouter, Link } from 'react-router-dom';
+import Route from 'react-router-dom/Route';
+
 
 class App extends React.Component {
 
@@ -16,12 +20,30 @@ class App extends React.Component {
   render(){
     
     return (
-      <div className="App">
+      <BrowserRouter>
+      <div>
+        
+        <StartPage />  
+        
+    
+        
+        <Route 
+          path='/register' exact render={ () => {
+            return(<Register />);
 
-        <Register />
+          }
+        }/>
+
+        <Route
+          path="/login" exact render = { () => {
+            return(<LoginForm />)
+
+            }
+          }/>
+
 
       </div>
-
+      </BrowserRouter>
     );
   }
 }

@@ -8,7 +8,9 @@ class LoginForm extends React.Component{
         
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            response: ''
+
         }        
     }
     
@@ -16,19 +18,23 @@ class LoginForm extends React.Component{
         this.setState({username:event.target.value});
     } 
     passwordStateHandler = (event) => {
-
+        
         this.setState({password:event.target.value});
     }
-
+    
     submitHandler = (event) => {
-
+        
         event.preventDefault();
         
+        // POST 
         axios.post('http://localhost:3000/userLogin', this.state)      
         .then(resp => {
             console.log(resp)
-        
-        
+            
+            const response = resp.data;
+
+            this.setState({ response })
+            
         })
         .catch(error => {
             console.log(error);
@@ -37,14 +43,13 @@ class LoginForm extends React.Component{
         })        
     
     }
-    // POST 
     render() {
         return(
         <div>
             <form onSubmit={this.submitHandler}>
                 <label>Logga in</label>
                 <div>
-
+                <p>{this.state.response}</p>
                 <input type="text" value={this.state.username} onChange={this.usernameStateHandler} />
                 <input type="password" value={this.state.password} onChange={this.passwordStateHandler} />
                 <input type="submit" value="Login" />

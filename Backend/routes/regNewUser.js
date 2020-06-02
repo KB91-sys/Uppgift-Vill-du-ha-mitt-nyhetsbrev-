@@ -33,13 +33,14 @@ router.post('/', urlencodedParser, function (req, res, next) {
         
     
     var newUser = {
-      
+    
       "firstname":  req.body.firstname,
       "lastname": req.body.lastname,
       "username": req.body.username,
       "eMail": req.body.eMail,          
-      "password": req.body.password  
-      
+      "password": req.body.password,
+      "subscription": false
+    
     };
     
         
@@ -48,7 +49,7 @@ router.post('/', urlencodedParser, function (req, res, next) {
         {
           
           regUsers.push(newUser);
-          var saveUser = JSON.stringify(regUsers);
+          var saveUser = JSON.stringify(regUsers, 0, 2);
       
               
           fs.writeFile('regUsers.json', saveUser, (err, data) => {

@@ -27,9 +27,8 @@ router.post('/', urlencodedParser, function (req, res)
         
         
         if(userNameArray && checkPassword){
-            
-            res.send(userNameArray);
 
+            res.send(userNameArray);
 
         }
         else if(!checkPassword){

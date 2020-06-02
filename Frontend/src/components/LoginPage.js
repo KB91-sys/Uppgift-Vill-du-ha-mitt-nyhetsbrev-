@@ -1,9 +1,17 @@
 import React from 'react';
 
 
-class UserName extends React.Component {
-    render() { 
+class LoginPage extends React.Component {
+    constructor(props){
+        super(props) 
+            this.state = {
 
+                
+
+            }
+        }
+
+        render() { 
         const userName = this.props.userName;
         
         return (
@@ -20,7 +28,7 @@ class UserName extends React.Component {
 
 }
 
-export default UserName;
+export default LoginPage;
 
 
 

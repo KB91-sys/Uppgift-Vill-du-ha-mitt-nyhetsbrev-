@@ -1,1 +1,10 @@
-[{"firstname":"Kristofer","lastname":"Buvlér","username":"Kristofer","eMail":"k@hotmail.com","password":123},{"firstname":"Kristofer","lastname":"Buvlér","username":"Kristofer","eMail":"k@hotmail.com","password":"x"}]
+[
+  {
+    "firstname": "Kristofer",
+    "lastname": "Buvlér",
+    "username": "Kristofer",
+    "eMail": "k@hotmail.com",
+    "password": "test",
+    "subscription": false
+  }
+]
