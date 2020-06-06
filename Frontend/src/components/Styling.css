@@ -1,0 +1,48 @@
+.Home{
+    text-align: center;
+    font-size: 20px;
+
+    
+}
+
+.Home ul{
+    
+    list-style-type: none;
+    
+
+
+}
+
+.Home > label{
+    font-size: 30px;
+}
+
+.registerContainer{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 30px;
+}
+
+.loginForm{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 30px;
+}
+
+.LoginUserPage{
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.LoginUserPage > ul{
+
+    list-style-type: none;
+}

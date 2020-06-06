@@ -8,11 +8,7 @@ var router = express.Router();
 router.post('/', urlencodedParser, function (req, res)
 {
     
-
-
-
     fs.readFile('regUsers.json', (err, data) => {
-
 
         if(err) throw err;
 
@@ -25,7 +21,6 @@ router.post('/', urlencodedParser, function (req, res)
         
         let checkPassword = userNameArray.find(a => a.password === password);
         
-        
         if(userNameArray && checkPassword){
 
             res.send(userNameArray);
@@ -36,15 +31,7 @@ router.post('/', urlencodedParser, function (req, res)
             res.send("Fel lösenord eller användarnamn.");
             
         }
-    
-    
     })
-
-
-
-
-
-
 })
 
 

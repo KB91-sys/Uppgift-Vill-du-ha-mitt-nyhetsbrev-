@@ -6,21 +6,6 @@ var urlencodedParser = bodyParser.urlencoded({ extended: true});
 
 var router = express.Router();
 
-
-// GET 
-
-//router.get('/')
-
-    // Förnamn
-    // Efternamn
-    // email
-    // Preminumation
-
-
-
-// POST new user
-
-
 router.post('/', urlencodedParser, function (req, res, next) {
   
   fs.readFile('regUsers.json', (err, data) => {
@@ -29,9 +14,6 @@ router.post('/', urlencodedParser, function (req, res, next) {
     if(err) throw err;
   
     var regUsers = JSON.parse(data);
-    
-        
-    
     var newUser = {
     
       "firstname":  req.body.firstname,
@@ -40,47 +22,28 @@ router.post('/', urlencodedParser, function (req, res, next) {
       "eMail": req.body.eMail,          
       "password": req.body.password,
       "subscription": false
-    
+
     };
-    
-        
-        
-        if(req.body.firstname && req.body.lastname && req.body.username && req.body.eMail && req.body.password)
-        {
           
-          regUsers.push(newUser);
-          var saveUser = JSON.stringify(regUsers, 0, 2);
-      
-              
-          fs.writeFile('regUsers.json', saveUser, (err, data) => {
-            
-            if(err) throw err;
-            
-
-            res.send("Användare sparad.")
-      
-  
-          })
-          
-        }  
-        else{
-
-          res.send("Alla fält är inte ifyllda.")
-
-        }
-
+      if(req.body.firstname && req.body.lastname && req.body.username && req.body.eMail && req.body.password)
+      {
+        
+        regUsers.push(newUser);
+        var saveUser = JSON.stringify(regUsers, 0, 2);
     
-      
-    })
-  
-   
-  
-  
-  
+        fs.writeFile('regUsers.json', saveUser, (err, data) => {
+          
+          if(err) throw err;
+          res.send("Användare sparad.")
+    
+        })
+      }  
+      else{
+
+        res.send("Alla fält är inte ifyllda.")
+
+      }
+    })  
   })
-  
-  
-  
-  
 
-module.exports = router;
+  module.exports = router;

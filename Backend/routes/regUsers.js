@@ -14,13 +14,8 @@ router.get('/', function(req, res, next) {
     var users = JSON.parse(data);
     res.send(users);
 
-
-
   })
 
 });
-
-
-
 
 module.exports = router;

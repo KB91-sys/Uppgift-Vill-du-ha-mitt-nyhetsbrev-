@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import StartPage from './StartPage';
 
 class Register extends React.Component{
 
@@ -15,7 +16,6 @@ class Register extends React.Component{
             password: '',      
             response: ''
         }
-
     }
 
     firstnameStatehandler = (event) => {
@@ -39,34 +39,27 @@ class Register extends React.Component{
         event.preventDefault();
 
         axios.post('http://localhost:3000/regnewuser', this.state)
-            .then(resp => {
+        .then(resp => {
 
-                console.log(resp)               
-                
-                const response = resp.data;
-                this.setState({ response })
+            console.log(resp.data)               
+            
+            const response = resp.data;
+            this.setState({ response })                
+        })
+        .catch(err => {
 
-            })
-            .catch(err => {
-
-                console.log(err);
-
-
-            })
-              
-        
-
+            console.log(err);
+        })            
     }
 
-
     render() {
-        
-       
+               
         return(
-
-
-            <div>
+        <div className="registerContainer">
+            <div className="register">
                 <form onSubmit={this.submitHandler}>
+
+                    <StartPage />
                     <label>Registrera ny användare</label>
                         
                         <div>{this.state.response}</div>
@@ -80,7 +73,7 @@ class Register extends React.Component{
                 
                 </form>
             </div>
-
+        </div>
 
         ) 
     }

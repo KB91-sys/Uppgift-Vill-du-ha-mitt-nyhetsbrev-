@@ -11,7 +11,9 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var regUsersRouter = require('./routes/regusers');
 var regNewUserRouter = require('./routes/regnewuser');
-var userLoginRouter = require('./routes/userLogin')
+var userLoginRouter = require('./routes/userLogin');
+var changeSubscription = require('./routes/changeSubscription');
+var getSubscribedUsers = require('./routes/getSubscribedUsers');
 
 var app = express();
 
@@ -22,16 +24,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 
-// Tillagd modul
-// app.use(bodyParser.json());
-
-
 app.use('/', indexRouter);
 app.use('/regusers', regUsersRouter);
 app.use('/regnewuser', regNewUserRouter);
 app.use('/userLogin', userLoginRouter);
-
-
+app.use('/changeSubscription', changeSubscription);
+app.use('/getSubscribedUsers', getSubscribedUsers);
 
 
 module.exports = app;
