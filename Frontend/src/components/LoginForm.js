@@ -27,7 +27,6 @@ class LoginForm extends React.Component{
 
     authoration = () => {    
         return <Redirect to='LoginUserPage'/>
-    
     }  
 
     submitHandler = (event) => {         

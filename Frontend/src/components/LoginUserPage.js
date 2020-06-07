@@ -2,7 +2,7 @@ import React from 'react';
 import './Styling.css';
 import axios from 'axios';
 import StartPage from './StartPage';
-import { Router } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 
 class LoginUserPage extends React.Component {
         constructor(props){
@@ -52,30 +52,37 @@ class LoginUserPage extends React.Component {
     render() {        
         
         if(this.state.backToMainMenu === true){
+            
             return (
+                <BrowserRouter>
                 <div>
-                <Router>
-                    <StartPage />
-                </Router>
-                </div>
-            )
-        }
-
-        return (
-            <div className="LoginUserPage">
+                <Route
+                    path='/' exact render={ () => {
+                    return(<StartPage />);
                 
-                <h1>Welcome!</h1>
-                <p>Prenumerera på nyhetsbrev: </p>
-                <ul>
-                <li>
-                <button value={this.state.subscriptionButtonText} onClick={this.onSubscriptionButtonClick}>{this.state.subscriptionButtonText ? 'Ja' : 'Nej'}</button>
-                </li>
-                <li>
-                <button onClick={this.backToMainMenu}>Logga ut</button>
-                </li>
-                </ul>
-            </div>
-        );
+                }}/>
+
+                </div>
+                </BrowserRouter>
+                )
+        }
+        else{
+            return (
+                <div className="LoginUserPage">
+                    
+                    <h1>Welcome!</h1>
+                    <p>Prenumerera på nyhetsbrev: </p>
+                    <ul>
+                    <li>
+                    <button value={this.state.subscriptionButtonText} onClick={this.onSubscriptionButtonClick}>{this.state.subscriptionButtonText ? 'Ja' : 'Nej'}</button>
+                    </li>
+                    <li>
+                    <button onClick={this.backToMainMenu}>Logga ut</button>
+                    </li>
+                    </ul>
+                </div>
+            );
+        }
     }
 }
 

@@ -38,5 +38,13 @@
     "eMail": "test4@hotmail.com",
     "password": "test",
     "subscription": false
+  },
+  {
+    "firstname": "test5",
+    "lastname": "test5",
+    "username": "test5",
+    "eMail": "test5@hotmail.com",
+    "password": "test",
+    "subscription": true
   }
 ]

@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm';
 import Register from './components/Regiser';
-import StartPage from './components/StartPage';
 import { BrowserRouter, Route } from 'react-router-dom';
 import LoginUserPage from './components/LoginUserPage'; 
 
@@ -46,7 +45,7 @@ class App extends React.Component {
        
         <Route
           path='/' exact render={ () => {
-            return(<StartPage />);
+            return(<LoginForm />);
           }
         }/>
         <Route 
